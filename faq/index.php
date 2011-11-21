@@ -14,9 +14,9 @@ html { font-family: serif; margin: 2em; }
 
 <h2>What do you with my letter? Do you sell my address? Do you read my letters?</h2>
 
-<p>Indeed it is possible for me to read your letters. An evil network operator 
-between you on my server in London could do the same since site does not use <a 
-href="http://en.wikipedia.org/wiki/Transport_Layer_Security">SSL</a>. Though I 
+<p>Indeed it is possible for me to read your letters. An evil network operator
+between you on my server in London could do the same since site does not use <a
+href="http://en.wikipedia.org/wiki/Transport_Layer_Security">SSL</a>. Though I
 do not read your letters and
 you will just have to trust me that this is the case. URLs (which only you
 should know) to your generated
@@ -25,7 +25,7 @@ PDF letter are deleted daily.</p>
 <h2>I don't trust you! I want to run this tool on my own computer. Where is
 the source code I can download?</h2>
 
-<p>Here is the <a href="http://svn.natalian.org/projects/letter/"> source
+<p>Here is the <a href="https://github.com/kaihendry/letterly"> source
 code</a>. It relies on <a
 href="http://en.wikipedia.org/wiki/Xetex">xetex</a>.</p>
 
