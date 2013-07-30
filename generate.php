@@ -16,7 +16,7 @@ if ($from && $to && $body && $opening && $closing && $font) {
 umask(0);
 
 $template_file = "letter.template";
-$lettertex = sprintf(fread(fopen($template_file, 'r'), filesize($template_file)), $font, $from, $to, $f1, $opening, $body, $closing);
+$lettertex = sprintf(fread(fopen($template_file, 'r'), filesize($template_file)), $font, $from, $to, $f1, $opening, stripslashes($body), $closing);
 
 $PWD = dirname($_SERVER["SCRIPT_FILENAME"]);
 $uid = 'l/' . gmdate("Y-m-d\TH") . '/' . $_SERVER["REMOTE_ADDR"];
