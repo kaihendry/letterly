@@ -1,5 +1,5 @@
 <?php
-$font = stripslashes($_POST[font]);
+$font = stripslashes($_REQUEST[font]);
 ?>
 <select name="font" size="1">
 <option value="DejaVu Sans" style="font-family: DejaVu Sans;" <? if ($font == "DejaVu Sans") { echo "selected"; } ?>>DejaVu Sans</option>

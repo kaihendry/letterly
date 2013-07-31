@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <meta charset="utf-8" />
-  <link href="letter.css" rel="stylesheet" type="text/css">
-  <title>Letterly, Web form to printable PDF</title>
-  <script src="autosaver.js"></script>
- </head>
+<head>
+<meta charset="utf-8" />
+<link href="letter.css" rel="stylesheet" type="text/css">
+<title>Letterly, Web form to printable PDF</title>
+<meta name="description" content="Letterly is a letter generator, HTML5 form to printable PDF. Opensource." />
+<script src="autosaver.js"></script>
+</head>
 
 <?php
 function createInput($label,$placeholder,$name) {
 
-$value = stripslashes($_POST[$name]);
+$value = stripslashes($_REQUEST[$name]);
 
 echo '<li><label>'.$label
     .'<input placeholder="'.$placeholder
@@ -49,9 +50,9 @@ $opening = createInput("Opening","To whom it may concern","opening");
 ?>
 </ul>
 
-<textarea class="body" title="Message body" required="required" placeholder="Your letter" id="body" name="body" cols="80" rows="15">
+<textarea spellcheck="true" class="body" title="Message body" required="required" placeholder="Your letter" id="body" name="body" cols="80" rows="15">
 <?php
-$body = stripslashes($_POST['body']);
+$body = stripslashes($_REQUEST['body']);
 echo(htmlspecialchars($body));
 ?>
 </textarea>
