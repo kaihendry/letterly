@@ -1,8 +1,18 @@
 <?php
 $font = stripslashes($_REQUEST[font]);
+
+$lang = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"],0,2);
+$availfonts = explode("\n", `fc-list :lang=$lang : family`);
+sort($availfonts);
 ?>
-<select name="font" size="1">
-<option value="DejaVu Sans" style="font-family: DejaVu Sans;" <? if ($font == "DejaVu Sans") { echo "selected"; } ?>>DejaVu Sans</option>
-<option value="Charis SIL" style="font-family: Charis;" <? if ($font == "Charis SIL") { echo "selected"; } ?>>Charis SIL</option>
-<option value="Gentium" style="font-family: gentium;" <? if ($font == "Gentium") { echo "selected"; } ?>>Gentium</option>
+<select name="font">
+<?php
+foreach ($availfonts as $f) {
+	if (empty($f)) { continue; }
+	list($fontname) = explode(',', $f);
+	echo "<option value=\"$fontname\" style=\"font-family: $fontname;\"";
+	if ($font == $fontname) { echo "selected"; }
+	echo ">$fontname</option>\n";
+}
+?>
 </select>

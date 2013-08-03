@@ -58,8 +58,9 @@ echo system("whoami && cd $writedir && /usr/bin/xelatex $arg -output-directory=$
 echo "\n-->\n";
 
 if ($retval == 0) {
-	echo "<h1><a href=\"$uid/letter.pdf\">Download and View PDF Letter</a> <small>" .
-	round(filesize("$uid/letter.pdf") / 1048576, 2) . "  megabytes</small></h1>";
+	echo "<h1><a href=\"$uid/letter.pdf\">Download and View PDF Letter</a>";
+	// echo "<small>" . round(filesize("$uid/letter.pdf") / 1048576, 2) . "  megabytes</small>";
+	echo "</h1>\n";
 } else {
 	echo '<h1>Oh no, your letter is causing the compiler to choke. Please save the letter and <a href="mailto:hendry@iki.fi">report</a> the issue.</h1>'; }
 } else { echo "<h1>Please type your letter</h1>"; }

@@ -22,7 +22,7 @@ return $value;
 }
 ?>
 
-<form id="letter" action="<?echo($PHP_SELF);?>" method="POST">
+<form id="letter" method="POST">
 
 <ul id="to">
 <?php
@@ -50,7 +50,7 @@ $opening = createInput("Opening","To whom it may concern","opening");
 ?>
 </ul>
 
-<textarea spellcheck="true" class="body" title="Message body" required="required" placeholder="Your letter" id="body" name="body" cols="80" rows="15">
+<textarea spellcheck="true" class="body" title="Letter body" required="required" placeholder="Your letter" id="body" name="body" cols="80" rows="15">
 <?php
 $body = stripslashes($_REQUEST['body']);
 echo(htmlspecialchars($body));
@@ -73,7 +73,7 @@ $closing = createInput("Closing","Sincerely,","closing");
 <?php include 'generate.php'; ?>
 
 <ul class="footer">
-<li><a href="faq/">F.A.Q.</a></li>
+<li><a href="faq/"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
 </ul>
 
 <script type="text/javascript">
