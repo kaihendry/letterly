@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <link href="letter.css" rel="stylesheet" type="text/css">
 <title>Letterly, Web form to printable PDF</title>
-<meta name="description" content="Letterly is a letter generator, HTML5 form to printable PDF. Opensource." />
+<meta name="description" content="Letterly is a letter template, HTML5 form to printable PDF. Opensource. Unicode." />
 <script src="autosaver.js"></script>
 </head>
 
@@ -64,7 +64,7 @@ $closing = createInput("Closing","Sincerely,","closing");
 </ul>
 
 <div id="controls">
-<button onclick="saveFormState();" type="submit"><img src="/favicon.ico"/>&nbsp;Letterly!</button>
+<button onclick="saveFormState();" type="submit"><img src="/favicon.ico" alt=""/>&nbsp;Letterly!</button>
 <?php include 'fonts.php'; ?> <br/>
 </div>
 
