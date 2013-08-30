@@ -5,8 +5,11 @@ function rb($template_var) {
 	return str_replace($braces, "", $template_var);
 }
 
-$to = implode("\n", array_map('stripslashes', array($t1, $t2, $t3, $t4, $t5)) );
-$from = implode("\n", array_map('stripslashes', array($f2, $f3, $f4, $f5)) );
+// Prompted by https://news.ycombinator.com/item?id=6300061
+$to = array_filter(array($t1, $t2, $t3, $t4, $t5));
+$from = array_filter(array($f2, $f3, $f4, $f5));
+$to = implode("\n", array_map('stripslashes', $to));
+$from = implode("\n", array_map('stripslashes', $from) );
 
 $to = preg_replace('/\n/', "\\\\\\\n", $to);
 $from = preg_replace('/\n/', "\\\\\\\n", $from);

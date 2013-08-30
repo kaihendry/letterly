@@ -1,13 +1,19 @@
 html { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 1.0em; color: grey; background-color:white; margin-right: 5%;}
 
-input[type=text] {border: thin #9999FF dashed; width: 100%; color: black; }
+input{
+padding: 2px;
+background: #FFFFFF;
+border: 1px solid #D4D6D6;
+font-size: 13px;
+color: #676767;
+width: 240px;
+min-height: 20px;
+}
 
 button { float: left; font-size: 2em; padding: 1.8; margin: 0.5em;}
 select { float: right; font-size: 1.5em;}
 #controls { margin-left: 10%; margin-right: 10%; }
-
-input:focus, textarea:focus { border: thick solid #9999FF;}
 
 textarea { border: thin #9999FF solid; margin-left: 3em; font-size: 1.2em; width: 90% }
 
@@ -24,3 +30,5 @@ margin-left: 40%;
 margin-right: 40%;
 top: 5%;
 }
+
+

@@ -15,7 +15,7 @@ $value = stripslashes($_REQUEST[$name]);
 
 echo '<li><label>'.$label
     .'<input placeholder="'.$placeholder
-    .'" required name="'.$name
+    .'" name="'.$name
     .'" value="'.htmlspecialchars($value).'"></label></li>'."\n";
 
 return $value;
