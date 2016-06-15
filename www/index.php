@@ -65,7 +65,6 @@ $closing = createInput("Closing","Sincerely,","closing");
 
 <div id="controls">
 <button onclick="saveFormState();" type="submit"><img src="/favicon.ico" alt=""/>&nbsp;Letterly!</button>
-<?php include 'fonts.php'; ?> <br/>
 </div>
 
 </form>

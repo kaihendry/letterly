@@ -2,7 +2,6 @@
 \usepackage{fontspec}
 \defaultfontfeatures{Mapping=tex-text}
 \usepackage{xunicode}
-\setmainfont{%s}
 \usepackage{babel}
 \begin{document}
 

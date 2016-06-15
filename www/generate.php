@@ -19,13 +19,13 @@ $from = trim($from);
 
 $body = str_replace ("\r\n", "\n", stripslashes($body));
 
-if ($from && $to && $body && $opening && $closing && $font) {
+if ($from && $to && $body && $opening && $closing) {
 
 umask(0);
 
 $template_file = "letter.template";
 $tpl = file_get_contents($template_file);
-$lettertex = sprintf($tpl, stripslashes($font), rb($from), rb($to), rb($f1), rb($opening), rb($body), rb($closing));
+$lettertex = sprintf($tpl, rb($from), rb($to), rb($f1), rb($opening), rb($body), rb($closing));
 
 $PWD = dirname($_SERVER["SCRIPT_FILENAME"]);
 $uid = 'l/' . gmdate("Y-m-d\TH") . '/' . $_SERVER["REMOTE_ADDR"];
