@@ -4,25 +4,23 @@
 <meta charset="utf-8" />
 <link href="letter.css" rel="stylesheet" type="text/css">
 <title>Letterly, Web form to printable PDF</title>
-<meta name="description" content="Letterly is a letter template, HTML5 form to printable PDF. Opensource. Unicode." />
+<meta name="description" content="Letterly is a letter template, HTML5 form to printable PDF." />
 <script src="autosaver.js"></script>
 </head>
 
 <?php
 function createInput($label,$placeholder,$name) {
 
-$value = stripslashes($_REQUEST[$name]);
-
 echo '<li><label>'.$label
     .'<input placeholder="'.$placeholder
     .'" name="'.$name
-    .'" value="'.htmlspecialchars($value).'"></label></li>'."\n";
+    .'"></label></li>'."\n";
 
 return $value;
 }
 ?>
 
-<form id="letter" method="POST">
+<form id="letter" method="post" action="pdf/">
 
 <ul id="to">
 <?php
@@ -51,10 +49,6 @@ $opening = createInput("Opening","To whom it may concern","opening");
 </ul>
 
 <textarea spellcheck="true" class="body" title="Letter body" required="required" placeholder="Your letter" id="body" name="body" cols="80" rows="15">
-<?php
-$body = stripslashes($_REQUEST['body']);
-echo(htmlspecialchars($body));
-?>
 </textarea>
 
 <ul id="closing">
@@ -68,8 +62,6 @@ $closing = createInput("Closing","Sincerely,","closing");
 </div>
 
 </form>
-
-<?php include 'generate.php'; ?>
 
 <ul class="footer">
 <li><a href="faq/"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>

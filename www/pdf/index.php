@@ -5,6 +5,22 @@ function rb($template_var) {
 	return str_replace($braces, "", $template_var);
 }
 
+$t1 = stripslashes($_REQUEST["t1"]);
+$t2 = stripslashes($_REQUEST["t2"]);
+$t3 = stripslashes($_REQUEST["t3"]);
+$t4 = stripslashes($_REQUEST["t4"]);
+$t5 = stripslashes($_REQUEST["t5"]);
+
+$f1 = stripslashes($_REQUEST["f1"]);
+$f2 = stripslashes($_REQUEST["f2"]);
+$f3 = stripslashes($_REQUEST["f3"]);
+$f4 = stripslashes($_REQUEST["f4"]);
+$f5 = stripslashes($_REQUEST["f5"]);
+
+$opening = stripslashes($_REQUEST["opening"]);
+$closing = stripslashes($_REQUEST["closing"]);
+$body = stripslashes($_REQUEST['body']);
+
 // Prompted by https://news.ycombinator.com/item?id=6300061
 $to = array_filter(array($t1, $t2, $t3, $t4, $t5));
 $from = array_filter(array($f2, $f3, $f4, $f5));
@@ -27,10 +43,8 @@ $template_file = "letter.template";
 $tpl = file_get_contents($template_file);
 $lettertex = sprintf($tpl, rb($from), rb($to), rb($f1), rb($opening), rb($body), rb($closing));
 
-$PWD = dirname($_SERVER["SCRIPT_FILENAME"]);
-$uid = 'l/' . gmdate("Y-m-d\TH") . '/' . $_SERVER["REMOTE_ADDR"];
+$writedir = '/tmp/' . gmdate("Y-m-d\TH") . '/' . $_SERVER["REMOTE_ADDR"];
 
-$writedir = $PWD . "/$uid";
 if (!is_dir($writedir)) {
     if ($body) {
     mkdir($writedir, 0777, true);
@@ -40,31 +54,18 @@ if (!is_dir($writedir)) {
 $letterloc = $writedir . "/letter.tex";
 
 if (is_dir($writedir)) {
-$file = fopen($letterloc, 'w');
-fwrite($file, $lettertex);
-fclose($file);
+	$file = fopen($letterloc, 'w');
+	fwrite($file, $lettertex);
+	fclose($file);
 }
 
-$letterEOL = addcslashes($lettertex, "\0..\37!@\177..\377");
-
-echo "<!-- <pre>\n";
-echo "$letterEOL";
-echo "\n\n";
-echo "$lettertex";
-echo "</pre> -->\n";
-
-
-echo "<!-- XeLateX output: \n";
-
 $arg = escapeshellarg($letterloc);
-echo system("whoami && cd $writedir && /usr/bin/xelatex $arg -output-directory=$writedir", $retval);
-echo "\n-->\n";
+exec("cd $writedir && /usr/bin/xelatex $arg -output-directory=$writedir", $output, $retval);
 
 if ($retval == 0) {
-	echo "<h1><a href=\"$uid/letter.pdf\">Download and View PDF Letter</a>";
-	// echo "<small>" . round(filesize("$uid/letter.pdf") / 1048576, 2) . "  megabytes</small>";
-	echo "</h1>\n";
+	header("Content-type:application/pdf");
+	readfile("$writedir/letter.pdf");
 } else {
-	echo '<h1>Oh no, your letter is causing the compiler to choke. Please save the letter and <a href="mailto:hendry@iki.fi">report</a> the issue.</h1>'; }
+	echo '<h1>Oh no, your letter is causing the tex compiler to choke. Please save the letter and <a href="mailto:hendry@iki.fi">report</a> the issue.</h1>'; }
 } else { echo "<h1>Please type your letter</h1>"; }
 ?>
