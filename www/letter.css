@@ -2,13 +2,13 @@ html { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 1.0em; color: grey; background-color:white; margin-right: 5%;}
 
 input{
-padding: 2px;
-background: #FFFFFF;
-border: 1px solid #D4D6D6;
-font-size: 13px;
-color: #676767;
-width: 240px;
-min-height: 20px;
+	padding: 2px;
+	background: #FFFFFF;
+	border: 1px solid #D4D6D6;
+	font-size: 13px;
+	color: #676767;
+	width: 240px;
+	min-height: 20px;
 }
 
 button { float: left; font-size: 2em; padding: 1.8; margin: 0.5em;}
@@ -25,10 +25,8 @@ ul#opening { clear: both; }
 .footer { font-size: 0.8em; clear: both }
 
 h1 {text-align: center;
-position:absolute;
-margin-left: 40%;
-margin-right: 40%;
-top: 5%;
+	position:absolute;
+	margin-left: 40%;
+	margin-right: 40%;
+	top: 5%;
 }
-
-

@@ -1,0 +1,6 @@
+0.0.0.0
+fastcgi / unix:/run/php-fpm/php-fpm.sock php
+startup php-fpm
+root /srv/
+log stdout
+errors stdout

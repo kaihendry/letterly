@@ -1,7 +1,10 @@
 # [Letterly](https://letterly.com/)
 
 Exposing a letter Latex type setting via a Web application securely for my
-convienance (primarily) and you.
+convenience (primarily) and you.
+
+	docker build -t letterly .
+	docker run -it --rm --name letterly -p 8080:2015 letterly
 
 # Acknowledgements
 
