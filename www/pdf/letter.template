@@ -1,8 +1,4 @@
-\documentclass[british,a4paper]{letter}
-\usepackage{fontspec}
-\defaultfontfeatures{Mapping=tex-text}
-\usepackage{xunicode}
-\usepackage{babel}
+\documentclass[a4paper,12pt]{letter}
 \begin{document}
 
 \address{
