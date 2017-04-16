@@ -2,7 +2,7 @@ FROM base/archlinux
 
 MAINTAINER Kai Hendry <hendry@iki.fi>
 
-RUN pacman --noconfirm -Sy archlinux-keyring && pacman -q -Syu --noconfirm php php-fpm texlive-bin texlive-core sed
+RUN pacman --noconfirm -Sy archlinux-keyring && pacman -q -Syu --noconfirm php php-fpm texlive-bin texlive-core sed tar
 
 RUN update-ca-trust
 RUN curl --silent --show-error --fail --location \
