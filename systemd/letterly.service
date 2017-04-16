@@ -1,0 +1,10 @@
+[Unit]
+Description=Letterly
+Requires=docker.service
+After=docker.service
+
+[Service]
+ExecStart=/usr/bin/docker run --rm --name letterly -p 8080:2015 hendry/letterly
+
+[Install]
+WantedBy=multi-user.target
